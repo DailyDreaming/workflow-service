@@ -1,6 +1,7 @@
 from __future__ import print_function
 import json
 import os
+import logging
 import subprocess
 import uuid
 
@@ -66,6 +67,8 @@ class Workflow(object):
 
         # build args and run
         command_args = [runner] + extra + [workflow_url, jsonpath]
+        print(command_args)
+        logging.critical(command_args)
         proc = subprocess.Popen(command_args,
                                 stdout=output,
                                 stderr=stderr,
